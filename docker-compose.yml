@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+  caddy:
+    build: docker/caddy
+    restart: unless-stopped
+    hostname: ${HOSTNAME}
+    domainname: ${DOMAINNAME}
+    ports:
+      - "8080:80"
+      - "8443:443"
+      - "2015:2015"
+    volumes:
+      - "${PWD}/docker/caddy/files/caddy:/.caddy"
+
+  owncloud:
+    image: owncloud:9.0
+    restart: unless-stopped
+    volumes:
+      - "${PWD}/docker/owncloud/files/var/www/html/config:/var/www/html/config"
+      - "${PWD}/docker/owncloud/files/var/www/html/data:/var/www/html/data"
+
+  mariadb:
+    image: mariadb:10.1
+    restart: unless-stopped
+    volumes:
+      - data_mariadb:/var/lib/mysql
+      - "${PWD}/docker/mariadb/files/etc/mysql/conf.d:/etc/mysql/conf.d"
+    environment:
+      - "MYSQL_USER=${MYSQL_USER}"
+      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
+      - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
+      - "MYSQL_DATABASE=${MYSQL_DATABASE}"
+
+volumes:
+  data_owncloud:
+    driver: local
+
+  data_mariadb:
+    driver: local

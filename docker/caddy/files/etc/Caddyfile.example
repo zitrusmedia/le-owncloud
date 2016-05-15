@@ -1,0 +1,14 @@
+0.0.0.0, localhost, acme.example.com {
+	gzip
+
+	tls email acme@example.com
+
+	proxy / owncloud:80 {
+		proxy_header Host {host}
+		proxy_header X-Real-IP {remote}
+		proxy_header X-Forwarded-Proto {scheme}
+	}
+}
+
+log stdout
+errors stdout

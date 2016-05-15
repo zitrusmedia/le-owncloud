@@ -1,0 +1,9 @@
+.*
+*~
+/backup/*
+/docker/caddy/files/caddy/*
+/docker/caddy/files/etc/Caddyfile
+/docker/owncloud/files/var/www/html/config/*
+/docker/owncloud/files/var/www/html/data/*
+.env
+!.git*
