@@ -13,6 +13,7 @@ services:
       - "EMAIL=${EMAIL}"
       - "HOSTNAME=${HOSTNAME}"
       - "DOMAINNAME=${DOMAINNAME}"
+    command: "-conf /etc/Caddyfile -agree -email ${EMAIL}"
 
   owncloud:
     image: owncloud:9.0

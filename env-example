@@ -1,11 +1,11 @@
 # docker compose
-COMPOSE_PROJECT_NAME=owncloud
-HOSTNAME=acme
-DOMAINNAME=example.com
-EMAIL=acme@example.com
+COMPOSE_PROJECT_NAME="owncloud"
+HOSTNAME="acme"
+DOMAINNAME="example.com"
+EMAIL="acme@example.com"
 
 # mysql
-MYSQL_USER=owncloud
-MYSQL_PASSWORD=owncloud
-MYSQL_ROOT_PASSWORD=root
-MYSQL_DATABASE=owncloud
+MYSQL_USER="owncloud"
+MYSQL_PASSWORD="owncloud"
+MYSQL_ROOT_PASSWORD="root"
+MYSQL_DATABASE="owncloud"

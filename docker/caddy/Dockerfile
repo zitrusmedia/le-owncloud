@@ -21,5 +21,4 @@ WORKDIR /srv
 ADD files/etc/Caddyfile /etc/Caddyfile
 
 ENTRYPOINT ["/usr/bin/caddy"]
-CMD ["-conf", "/etc/Caddyfile", "-agree", "-email", "${EMAIL}"]
-#CMD ["-ca", "https://acme-staging.api.letsencrypt.org/directory", "-conf", "/etc/Caddyfile", "-agree", "-email", "${EMAIL}"]
+CMD ["-ca", "https://acme-staging.api.letsencrypt.org/directory", "-conf", "/etc/Caddyfile", "-agree"]

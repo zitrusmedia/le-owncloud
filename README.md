@@ -9,7 +9,7 @@ Clone this project to a destination on your server, e.g. ~/owncloud
 
 ### 2. Modify environment
 
-Make sure you setup the docker compose environment for this project correctly by copying the env-example to .env. Please change the mariadb passwords in that env file before using it in production!
+Make sure you setup the docker compose environment for this project correctly. You can find an env-example file in the root directory which must be copied to .env. And please please please change the mariadb passwords in that env file before using it in production! You must also provide a valid host- and domainname as well as an email address, otherwise the let's encrypt tls certificate creation will fail.
 
 ```bash
 cp env-example .env
@@ -18,14 +18,14 @@ vim .env
 
 ### 3. Configure caddy
 
-Configure caddy. You can copy the example file and edit it.
+Copy the example Caddyfile and modify it to configure the caddy server successfully.
 
 ```bash
 cp docker/caddy/files/etc/Caddyfile.example docker/caddy/files/etc/Caddyfile
 vim docker/caddy/files/etc/Caddyfile
 ```
 
-Make sure you're replacing the hostname acme.example.com and updating the tls email address used to create the let's encrypt certificates.
+Make sure you're replacing the hostname acme.example.com! That's all you need to change here.
 
 ### 4. Run docker containers
 
